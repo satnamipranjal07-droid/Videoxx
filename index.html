@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adept Cinema</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Black Navigation Bar -->
+  <header class="top-black-bar">
+    <div class="logo">Adept Cinema</div>
+    <a href="admin.html" class="admin-btn">Admin Panel</a>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2 style="margin-top:80px; color:white; text-align:center;">Videos</h2>
+    <div id="video-list" class="video-list"></div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="nav-bar">
+    <div class="nav-button active" data-name="home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 3l10 9h-3v9h-6v-6h-2v6H5v-9H2z"/>
+      </svg>
+      <span>Home</span>
+    </div>
+
+    <div class="nav-button" data-name="explore">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+      </svg>
+      <span>Explore</span>
+    </div>
+
+    <div class="nav-button" data-name="new">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2l1.5 4.5H18l-3.6 2.7L16 14l-4-2.7L8 14l1.6-4.8L6 6.5h4.5z"/>
+      </svg>
+      <span>New</span>
+    </div>
+
+    <div class="nav-button" data-name="account">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+      </svg>
+      <span>Account</span>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
