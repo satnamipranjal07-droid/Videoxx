@@ -81,3 +81,20 @@ document.getElementById('adminLoginForm').addEventListener('submit', function(e)
     alert("Invalid Username or Password!");
   }
 });
+document.getElementById("adminLoginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if(username === "admin" && password === "1234"){
+        alert("Login successful");
+
+        // Hide login form
+        document.getElementById("adminLoginForm").style.display = "none";
+
+        // Show the upload link
+        document.getElementById("uploadLink").style.display = "inline-block";
+    } else {
+        alert("Invalid username or password");
+    }
+});
