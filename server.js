@@ -43,3 +43,62 @@ app.post("/admin-login", (req, res) => {
     res.send("❌ Invalid username or password");
   }
 });
+// Admin page
+app.get("/admin", (req, res) => {
+    if(req.session.authenticated) {
+        res.sendFile(path.join(__dirname, "admin.html"));
+    } else {
+        res.redirect("/"); // not logged in → go to home
+    }
+});
+
+// Upload page
+app.get("/upload", (req, res) => {
+    if(req.session.authenticated) {
+        res.sendFile(path.join(__dirname, "upload.html"));
+    } else {
+        res.redirect("/"); // not logged in → go to home
+    }
+});
+
+// Multer setup
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, "uploads/"),
+    filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
+});
+const upload = multer({ storage });
+
+// Handle file upload
+app.post("/upload-file", (req, res) => {
+    if(!req.session.authenticated) return res.send("❌ Not authorized");
+    upload.single("file")(req, res, function(err) {
+        if(err) return res.send("❌ Upload error");
+        if(!req.file) return res.send("❌ No file uploaded");
+        res.send("✅ File uploaded: " + req.file.filename);
+    });
+});
+
+// Logout
+app.get("/logout", (req, res) => {
+    req.session.destroy();
+    res.redirect("/");
+});
+
+// Fallback
+app.use((req, res) => res.status(404).sendFile(path.join(__dirname, "index.html")));
+
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+
+
+---
+
+3️⃣ Admin form (HTML) reminder
+
+<form action="/admin-login" method="POST">
+    <h2>Admin Login</h2>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
+
