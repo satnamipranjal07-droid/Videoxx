@@ -28,3 +28,18 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
+ // For parsing POST requests
+app.use(express.urlencoded({ extended: true }));
+
+// Admin login check
+app.post("/admin-login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Simple static username/password
+  if(username === "admin" && password === "1234") {
+    // Redirect to admin page
+    res.redirect("/admin");
+  } else {
+    res.send("❌ Invalid username or password");
+  }
+});
