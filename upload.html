@@ -16,9 +16,11 @@
 <main class="upload-container">
   <h2>Upload Video</h2>
   
-  <form id="uploadForm">
-    <input type="text" placeholder="Video Title" required>
-    <input type="file" accept="video/*" required>
+  
+    <form action="/upload-file" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+    </form>
  
   </form>
 </main>
