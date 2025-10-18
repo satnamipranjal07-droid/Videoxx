@@ -22,12 +22,13 @@
   <main class="admin-container">
 
   <!-- Login Form -->
-  <form class="admin-login-form" id="adminLoginForm">
+  
+    <form class="admin-login-form" id="adminLoginForm" action="/admin-login" method="POST">
     <h2>Admin Login</h2>
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
-  </form>
+    </form>
 
   <!-- Admin Buttons (initially hidden)-->
   <button class="upload-btn">Upload Video</button>
